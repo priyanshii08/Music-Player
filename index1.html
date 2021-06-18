@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <style media="screen">
+      body{
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #ffb399;
+        font-family: sans-serif;
+      }
+      button{
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+      }
+      .music-container{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .music-content{
+        position:relative;
+        width: 245px;
+        height: 450px;
+        background-color: #000;
+        border-width: 8px 4px !important;
+        border: solid;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.52);
+      }
+      .bg-image img{
+        width: 105%;
+        height: 105%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+        filter: blur(6px);
+        -webkit-filter:blur(5px);
+      }
+      .blacklayer{
+        height: 450px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.404);
+        position: absolute;
+        z-index: 2;
+      }
+      .menu{
+        position: relative;
+        z-index: 3;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .menu img{
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+      .volume-container{
+        position: relative;
+        width: 100%;
+        height: 15px;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .volume-container img{
+        width: 16px;
+        height: 16px;
+        margin: 0 5px;
+      }
+      .slider{
+        width: 110px;
+        height: 1px !important;
+        -webkit-appearance:none;
+        border-radius: 10px;
+        background-color: #fff;
+        z-index: 100;
+        outline: none;
+        position: relative;
+      }
+      .slider::-webkit-slider-thumb{
+        -webkit-appearance:none;
+        width: 10px;
+        height: 10px;
+        background-color: #e62c2f;
+        border-radius: 50%;
+        cursor: pointer;
+        outline: none;
+        transform: scale(1);
+
+      }
+      .slider:active::-webkit-slider-thumb{
+        transform: scale(1.2);
+      }
+      .music-image{
+        position: relative;
+        width: 100%;
+        height: 215px;
+        z-index: 3;
+
+      }
+      .circle-image{
+        position: absolute;
+        top: -33%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 120px;
+        height: 120px;
+        background-color: black;
+        border-radius: 50%;
+        border: 5px solid rgba(221,221,221,0.897);
+        overflow: hidden;
+      }
+      .music-image img{
+        width: 100%;
+        height: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="music-container">
+      <div class="music-content">
+        <div class="bg-image">
+
+          <div class="blacklayer">
+            <img src="images/ncs1.jpeg" alt=""class="bgImage">
+          </div>
+
+         <div class="menu">
+           <img src="images/menu.png" alt="">
+           <img src="images/search.png" alt="">
+         </div>
+
+         <div class="volume-container">
+           <img src="images/volume-low.png" alt="" class="volume-down">
+           <input type="range"class="slider" name="" value="100" step="1" class="volumeslider" min="0"max="100">
+           <img src="images/volumn-high.png" alt=""class="volume-up">
+         </div>
+
+         <div  class="music-image">
+           <div class="circle-image">
+             <img src="images/ncs1.jpeg" alt="" class="image">
+           </div>
+
+           <div class="music-title">
+             <h5 class="playlist_status"></h5>
+             <h6 class="playlist_artist"></h6>
+           </div>
+
+           <div class="music-menu">
+             <button   class="random" type="button" name="button"><img src="images/random.png" alt="""width="16px" height="16px"></button>
+             <button  class="mutebtn"type="button" name="button"><img src="images/speaker.png" alt="""width="16px" height="16px"></button>
+           </div>
+
+           <div class="currentTime">
+             <span class="curtimetext">00:00</span>
+             <span class="durtimetext">00:00</span>
+           </div>
+
+           <input  class="seekslider"type="range"class="seekslider" name="" value="0" min="0" max="100" step="1">
+           <div class="button">
+             <button type="button" class="repeat"id="repeat" name="button"><img src="images/rep.png" alt=""width="16px" height="16px"> </button>
+           </div>
+
+           <div >
+             <button type="button" class="pre"id="prevbtn" name="button"><img src="images/backward.png" alt="""width="16px" height="16px"></button>
+             <button type="button" class="play"id="playpausebtn" name="button"><img src="images/play-red.png" alt="""width="16px" height="16px"></button>
+              <button type="button" class="next"id="nextbtn" name="button"><img src="images/forward.png" alt="""width="16px" height="16px"></button>
+           </div>
+
+          <span class="like"> <i class="far fa-heart" aria-hidden="true"></i> </span>
+
+         </div>
+    </div>
+      </div>
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="index.js"></script>
+    </div>
+
+
+
+  </body>
+</html>
